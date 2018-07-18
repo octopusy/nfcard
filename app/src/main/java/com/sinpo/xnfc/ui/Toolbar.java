@@ -27,7 +27,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.sinpo.xnfc.R;
-import com.sinpo.xnfc.ThisApplication;
+import com.sinpo.xnfc.BaseApplication;
 
 public final class Toolbar {
 	final ViewGroup toolbar;
@@ -47,7 +47,7 @@ public final class Toolbar {
 			((ClipboardManager) textArea.getContext().getSystemService(
 					Context.CLIPBOARD_SERVICE)).setText(text.toString());
 
-			ThisApplication.showMessage(R.string.info_main_copied);
+			BaseApplication.showMessage(R.string.info_main_copied);
 		}
 	}
 
@@ -56,7 +56,7 @@ public final class Toolbar {
 		if (!TextUtils.isEmpty(text)) {
 			Intent intent = new Intent();
 			intent.setAction(Intent.ACTION_SEND);
-			intent.putExtra(Intent.EXTRA_SUBJECT, ThisApplication.name());
+			intent.putExtra(Intent.EXTRA_SUBJECT, BaseApplication.name());
 			intent.putExtra(Intent.EXTRA_TEXT, text.toString());
 			intent.setType("text/plain");
 			textArea.getContext().startActivity(intent);

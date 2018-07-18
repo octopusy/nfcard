@@ -15,7 +15,7 @@
         android:required="true" />
 
     <application
-        android:name="com.sinpo.xnfc.ThisApplication"
+        android:name="com.sinpo.xnfc.BaseApplication"
         android:allowBackup="false"
         android:hardwareAccelerated="true"
         android:icon="@drawable/nfcard"

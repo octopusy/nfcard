@@ -41,7 +41,7 @@ import android.view.View;
 
 import com.sinpo.xnfc.R;
 import com.sinpo.xnfc.SPEC;
-import com.sinpo.xnfc.ThisApplication;
+import com.sinpo.xnfc.BaseApplication;
 
 public final class SpanFormatter implements Html.TagHandler {
 	public interface ActionHandler {
@@ -258,9 +258,9 @@ public final class SpanFormatter implements Html.TagHandler {
 	}
 
 	private static void markSpliterSpan(Editable out, int pos, int colorId, int heightId) {
-		DisplayMetrics dm = ThisApplication.getDisplayMetrics();
-		int color = ThisApplication.getColorResource(colorId);
-		int height = ThisApplication.getDimensionResourcePixelSize(heightId);
+		DisplayMetrics dm = BaseApplication.getDisplayMetrics();
+		int color = BaseApplication.getColorResource(colorId);
+		int height = BaseApplication.getDimensionResourcePixelSize(heightId);
 		int width = dm.heightPixels > dm.widthPixels ? dm.heightPixels : dm.widthPixels;
 
 		out.append("-------------------").setSpan(new SplitterSpan(color, width, height), pos,
@@ -268,20 +268,20 @@ public final class SpanFormatter implements Html.TagHandler {
 	}
 
 	private static void markFontSpan(Editable out, int pos, int colorId, int sizeId, Typeface face) {
-		int color = ThisApplication.getColorResource(colorId);
-		float size = ThisApplication.getDimensionResourcePixelSize(sizeId);
+		int color = BaseApplication.getColorResource(colorId);
+		float size = BaseApplication.getDimensionResourcePixelSize(sizeId);
 		FontSpan span = new FontSpan(color, size, face);
 		out.setSpan(span, pos, pos, Spannable.SPAN_MARK_MARK);
 	}
 
 	private static void markParagSpan(Editable out, int pos, int linespaceId) {
-		int linespace = ThisApplication.getDimensionResourcePixelSize(linespaceId);
+		int linespace = BaseApplication.getDimensionResourcePixelSize(linespaceId);
 		ParagSpan span = new ParagSpan(linespace);
 		out.setSpan(span, pos, pos, Spannable.SPAN_MARK_MARK);
 	}
 
 	private void markActionSpan(Editable out, int pos, String tag, int colorId) {
-		int color = ThisApplication.getColorResource(colorId);
+		int color = BaseApplication.getColorResource(colorId);
 		out.setSpan(new ActionSpan(tag, handler, color), pos, pos, Spannable.SPAN_MARK_MARK);
 	}
 
@@ -309,7 +309,7 @@ public final class SpanFormatter implements Html.TagHandler {
 			ret = wr.get();
 
 		if (ret == null) {
-			ret = ThisApplication.getFontResource(R.string.font_oem3);
+			ret = BaseApplication.getFontResource(R.string.font_oem3);
 			TIPFONT = new WeakReference<Typeface>(ret);
 		}
 

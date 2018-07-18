@@ -23,9 +23,9 @@ import android.graphics.drawable.Drawable;
 import android.util.DisplayMetrics;
 import android.widget.Toast;
 
-public final class ThisApplication extends Application implements UncaughtExceptionHandler {
+public final class BaseApplication extends Application implements UncaughtExceptionHandler {
 
-	private static ThisApplication instance;
+	private static BaseApplication instance;
 
 	@Override
 	public void uncaughtException(Thread thread, Throwable ex) {

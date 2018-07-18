@@ -20,7 +20,7 @@ import android.app.Dialog;
 import android.content.Intent;
 
 import com.sinpo.xnfc.R;
-import com.sinpo.xnfc.ThisApplication;
+import com.sinpo.xnfc.BaseApplication;
 import com.sinpo.xnfc.SPEC.EVENT;
 import com.sinpo.xnfc.nfc.bean.Card;
 import com.sinpo.xnfc.nfc.reader.ReaderListener;
@@ -76,7 +76,7 @@ public final class NfcPage implements ReaderListener {
 
 		if (card != null && !card.hasReadingException()) {
 			if (card.isUnknownCard()) {
-				ret.putExtra(RET, ThisApplication
+				ret.putExtra(RET, BaseApplication
 						.getStringResource(R.string.info_nfc_unknown));
 			} else {
 				ret.putExtra(RET, card.toHtml());
@@ -84,7 +84,7 @@ public final class NfcPage implements ReaderListener {
 			}
 		} else {
 			ret.putExtra(RET,
-					ThisApplication.getStringResource(R.string.info_nfc_error));
+					BaseApplication.getStringResource(R.string.info_nfc_error));
 		}
 
 		return ret;

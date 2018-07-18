@@ -26,7 +26,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
 
-import com.sinpo.xnfc.R;
 import com.sinpo.xnfc.nfc.NfcManager;
 import com.sinpo.xnfc.ui.AboutPage;
 import com.sinpo.xnfc.ui.MainPage;
@@ -192,11 +191,11 @@ public class MainActivity extends Activity {
 	private void initViews() {
 		board = (ViewSwitcher) findViewById(R.id.switcher);
 
-		Typeface tf = ThisApplication.getFontResource(R.string.font_oem1);
+		Typeface tf = BaseApplication.getFontResource(R.string.font_oem1);
 		TextView tv = (TextView) findViewById(R.id.txtAppName);
 		tv.setTypeface(tf);
 
-		tf = ThisApplication.getFontResource(R.string.font_oem2);
+		tf = BaseApplication.getFontResource(R.string.font_oem2);
 
 		tv = getFrontPage();
 		tv.setMovementMethod(LinkMovementMethod.getInstance());

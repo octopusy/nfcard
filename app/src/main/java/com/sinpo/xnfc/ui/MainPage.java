@@ -21,7 +21,7 @@ import android.content.Intent;
 import android.nfc.NfcAdapter;
 
 import com.sinpo.xnfc.R;
-import com.sinpo.xnfc.ThisApplication;
+import com.sinpo.xnfc.BaseApplication;
 
 public final class MainPage {
 
@@ -37,7 +37,7 @@ public final class MainPage {
 		else
 			resid = R.string.info_nfc_nocard;
 
-		String tip = ThisApplication.getStringResource(resid);
+		String tip = BaseApplication.getStringResource(resid);
 
 		return new SpanFormatter(new Handler(activity)).toSpanned(tip);
 	}

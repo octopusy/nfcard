@@ -19,17 +19,18 @@ import android.app.Activity;
 import android.content.Intent;
 
 import com.sinpo.xnfc.R;
-import com.sinpo.xnfc.ThisApplication;
+import com.sinpo.xnfc.BaseApplication;
 
 public final class AboutPage {
+
 	private static final String TAG = "ABOUTPAGE_ACTION";
 
 	public static CharSequence getContent(Activity activity) {
 
-		String tip = ThisApplication
+		String tip = BaseApplication
 				.getStringResource(R.string.info_main_about);
-		tip = tip.replace("<app />", ThisApplication.name());
-		tip = tip.replace("<version />", ThisApplication.version());
+		tip = tip.replace("<app />", BaseApplication.name());
+		tip = tip.replace("<version />", BaseApplication.version());
 
 		return new SpanFormatter(null).toSpanned(tip);
 	}
